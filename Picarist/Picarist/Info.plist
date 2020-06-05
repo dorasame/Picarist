@@ -24,6 +24,8 @@
 	<string>${PRODUCT_NAME} 는 카메라 권한을 필요로 합니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>${PRODUCT_NAME} 는 앨범 접근 권한을 필요로 합니다.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>${PRODUCT_NAME} 는 사진 저장 기능을 위해 앨범 접근 권한을 필요로 합니다.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

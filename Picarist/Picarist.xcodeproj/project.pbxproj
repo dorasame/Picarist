@@ -66,8 +66,8 @@
 				CBE78FB6248133CB006B85E9 /* SceneDelegate.swift */,
 				CBE78FB8248133CB006B85E9 /* ContentView.swift */,
 				CBC3F59424827EEE008989D0 /* CustomCameraPhotoView.swift */,
-				CBC3F59824828742008989D0 /* CustomPhotoView.swift */,
 				CBC3F59624827F5F008989D0 /* CustomCameraView.swift */,
+				CBC3F59824828742008989D0 /* CustomPhotoView.swift */,
 				CBE78FBA248133CC006B85E9 /* Assets.xcassets */,
 				CBE78FBF248133CC006B85E9 /* LaunchScreen.storyboard */,
 				CBE78FC2248133CC006B85E9 /* Info.plist */,
@@ -296,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Picarist/Preview Content\"";
 				DEVELOPMENT_TEAM = 5VRY993AKE;
@@ -305,8 +306,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.sogang.Picarist.Picarist;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.sogang.Picarist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -316,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Picarist/Preview Content\"";
 				DEVELOPMENT_TEAM = 5VRY993AKE;
@@ -325,8 +328,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.sogang.Picarist.Picarist;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.sogang.Picarist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

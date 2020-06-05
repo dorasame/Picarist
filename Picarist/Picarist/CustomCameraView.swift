@@ -2,7 +2,6 @@ import SwiftUI
 import AVFoundation
 
 struct CustomCameraView: View {
-    @Binding var image: Image?
     @Binding var showingCustomCamera: Bool
     @Binding var inputImage: UIImage?
     @Binding var isCaptured: Bool
@@ -163,7 +162,6 @@ class CustomCameraController: UIViewController {
 
 
 struct CaptureButtonView: View {
-    @State private var animationAmount: CGFloat = 1
     var body: some View {
         ZStack {
             Circle()

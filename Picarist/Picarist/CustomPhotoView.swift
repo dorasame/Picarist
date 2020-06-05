@@ -1,21 +1,47 @@
-//
-//  CustomPhotoView.swift
-//  Picarist
-//
-//  Created by Sungho Yoon on 2020/05/30.
-//  Copyright © 2020 Picarist. All rights reserved.
-//
-
 import SwiftUI
 
 struct CustomPhotoView: View {
+    @Binding var inputImage: UIImage?
+    @Binding var isCaptured: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Rectangle()
+                .fill(Color.red)
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Spacer()
+                HStack() {
+                    Text("뒤로")
+                    .padding(.leading, 30)
+                    Spacer()
+                    SaveButtonView()
+                    .onTapGesture {
+                        self.saveImage()
+                    }
+                    Spacer()
+                    Text("편집")
+                    .padding(.trailing, 30)
+                }
+                .padding(.bottom, 30)
+            }
+        }
+    }
+    
+    func saveImage() {
+        UIImageWriteToSavedPhotosAlbum(inputImage!, nil, nil, nil)
     }
 }
 
-struct CustomPhotoView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomPhotoView()
+struct SaveButtonView: View {
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(Color.gray)
+                .frame(width: 70, height: 70)
+            Circle()
+                .fill(Color.white)
+                .frame(width: 60, height: 60)
+        }
     }
 }
