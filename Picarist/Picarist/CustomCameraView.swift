@@ -8,8 +8,9 @@ struct CustomCameraView: View {
     @State var didTapCapture: Bool = false
 
     var body: some View {
-        ZStack() {
+        VStack() {
             CustomCameraRepresentable(image: $inputImage, didTapCapture: $didTapCapture, isCaptured: $isCaptured)
+            Spacer()
             VStack {
                 Spacer()
                 HStack {
@@ -24,24 +25,19 @@ struct CustomCameraView: View {
                     Text("앞뒤전환")
                     .padding(.trailing, 30)
                 }
-                .padding(.bottom, 30)
+                .padding(.bottom, 100)
             }
         }
-        .edgesIgnoringSafeArea(.all)
+         .edgesIgnoringSafeArea(.all)
     }
-    // func loadImage() {
-    //     guard let inputImage = inputImage else { return }
-    //     image = Image(uiImage: inputImage)
-    // }
 }
 
 struct CustomCameraRepresentable: UIViewControllerRepresentable {
 
-    @Environment(\.presentationMode) var presentationMode
     @Binding var image: UIImage?
     @Binding var didTapCapture: Bool
     @Binding var isCaptured: Bool
-
+    
     func makeUIViewController(context: Context) -> CustomCameraController {
         let controller = CustomCameraController()
         controller.delegate = context.coordinator
@@ -68,16 +64,32 @@ struct CustomCameraRepresentable: UIViewControllerRepresentable {
         func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
             parent.didTapCapture = false
             parent.isCaptured = true
-
             if let imageData = photo.fileDataRepresentation() {
-                parent.image = UIImage(data: imageData)
+                parent.image = cropImage(originImage: UIImage(data: imageData)!)
             }
+        }
+        
+        func cropImage(originImage: UIImage) -> UIImage {
+            var newImage: UIImage?
+            
+            let cgimage = originImage.cgImage
+            let imageSize: CGFloat = CGFloat(originImage.size.width)
+            let posX: CGFloat = CGFloat(originImage.size.height / 4) - 60
+            let posY: CGFloat = 0
+            let cgwidth: CGFloat = imageSize
+            let cgheight: CGFloat = imageSize
+            
+            
+            let imageRef: CGImage = cgimage!.cropping(to: CGRect(x: posX, y: posY, width: cgwidth, height: cgheight))!
+            
+            newImage = UIImage(cgImage: imageRef, scale: originImage.scale, orientation: originImage.imageOrientation)
+            return newImage!
         }
     }
 }
 
 class CustomCameraController: UIViewController {
-
+    
     var image: UIImage?
 
     var captureSession = AVCaptureSession()
@@ -93,6 +105,7 @@ class CustomCameraController: UIViewController {
     func didTapRecord() {
 
         let settings = AVCapturePhotoSettings()
+        
         photoOutput?.capturePhoto(with: settings, delegate: delegate!)
 
     }
@@ -109,7 +122,8 @@ class CustomCameraController: UIViewController {
         startRunningCaptureSession()
     }
     func setupCaptureSession() {
-        captureSession.sessionPreset = AVCaptureSession.Preset.photo
+        captureSession.sessionPreset = AVCaptureSession.Preset.hd1920x1080
+        print(UIScreen.main.bounds)
     }
 
     func setupDevice() {
@@ -148,10 +162,11 @@ class CustomCameraController: UIViewController {
     }
     func setupPreviewLayer()
     {
+        let sizeOffset: CGFloat = 0
         self.cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        self.cameraPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         self.cameraPreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-        self.cameraPreviewLayer?.frame = self.view.frame
+        self.cameraPreviewLayer?.frame = CGRect(x: sizeOffset, y: sizeOffset, width: self.view.frame.width - sizeOffset * 2, height: self.view.frame.width - sizeOffset * 2)
+        self.cameraPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         self.view.layer.insertSublayer(cameraPreviewLayer!, at: 0)
 
     }
