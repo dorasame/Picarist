@@ -5,14 +5,19 @@ struct CustomPhotoView: View {
     @Binding var isCaptured: Bool
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(Color.red)
-                .edgesIgnoringSafeArea(.all)
+        VStack {
+            Image(uiImage: inputImage!)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+            Spacer()
             VStack {
                 Spacer()
                 HStack() {
-                    Text("뒤로")
+                    Button(action: {
+                        self.isCaptured = false
+                    }) {
+                        Text("뒤로")
+                    }
                     .padding(.leading, 30)
                     Spacer()
                     SaveButtonView()

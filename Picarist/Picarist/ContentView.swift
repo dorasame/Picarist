@@ -11,6 +11,7 @@ struct ContentView: View {
             .navigationBarTitle("")
             .navigationBarHidden(true)
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
