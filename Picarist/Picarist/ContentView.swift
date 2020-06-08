@@ -12,6 +12,7 @@ struct ContentView: View {
             .navigationBarHidden(true)
         }
         .edgesIgnoringSafeArea(.all)
+        .statusBar(hidden: true)
     }
 }
 
