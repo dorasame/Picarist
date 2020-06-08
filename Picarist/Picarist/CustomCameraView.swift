@@ -6,6 +6,7 @@ struct CustomCameraView: View {
     @Binding var inputImage: UIImage?
     @Binding var isCaptured: Bool
     @State var didTapCapture: Bool = false
+    @State var imagePickerPresented: Bool  = false
 
     var body: some View {
         VStack() {
@@ -18,6 +19,9 @@ struct CustomCameraView: View {
                     .font(.system(size: 40))
                     .padding(.leading, 30)
                     .frame(width: 100, alignment: .leading)
+                    .onTapGesture {
+                        self.imagePickerPresented.toggle()
+                    }
                     Spacer()
                     CaptureButtonView()
                     .onTapGesture {
@@ -32,7 +36,10 @@ struct CustomCameraView: View {
                 .padding(.bottom, 100)
             }
         }
-         .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.all)
+        .sheet(isPresented: $imagePickerPresented) {
+            ImagePicker(image: self.$inputImage, isCaptured: self.$isCaptured)
+        }
     }
 }
 
