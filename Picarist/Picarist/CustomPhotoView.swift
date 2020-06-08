@@ -16,19 +16,33 @@ struct CustomPhotoView: View {
                     Button(action: {
                         self.isCaptured = false
                     }) {
-                        Text("뒤로")
+                        VStack {
+                            Image(systemName: "return")
+                            .font(.system(size: 30))
+                            Text("뒤로")
+                            .font(.system(size: 15))
+                        }
+                        .font(.system(size: 30))
                     }
                     .padding(.leading, 30)
+                    .frame(width: 100, alignment: .leading)
                     Spacer()
                     SaveButtonView()
                     .onTapGesture {
                         self.saveImage()
                     }
                     Spacer()
-                    Text("편집")
+                    VStack {
+                        Image(systemName: "square.and.pencil")
+                        .font(.system(size: 30))
+                        Text("편집")
+                        .font(.system(size: 15))
+                    }
                     .padding(.trailing, 30)
+                    .frame(width: 100, alignment: .trailing)
+
                 }
-                .padding(.bottom, 30)
+                .padding(.bottom, 100)
             }
         }
     }
@@ -44,9 +58,9 @@ struct SaveButtonView: View {
             Circle()
                 .fill(Color.gray)
                 .frame(width: 70, height: 70)
-            Circle()
-                .fill(Color.white)
-                .frame(width: 60, height: 60)
+            Image(systemName: "arrow.down.circle.fill")
+                .font(.system(size: 60))
+                .foregroundColor(Color.white)
         }
     }
 }

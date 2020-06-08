@@ -14,16 +14,20 @@ struct CustomCameraView: View {
             VStack {
                 Spacer()
                 HStack {
-                    Text("사진")
+                    Image(systemName: "photo")
+                    .font(.system(size: 40))
                     .padding(.leading, 30)
+                    .frame(width: 100, alignment: .leading)
                     Spacer()
                     CaptureButtonView()
                     .onTapGesture {
                         self.didTapCapture = true
                     }
                     Spacer()
-                    Text("앞뒤전환")
+                    Image(systemName: "camera.rotate")
+                    .font(.system(size: 40))
                     .padding(.trailing, 30)
+                    .frame(width: 100, alignment: .trailing)
                 }
                 .padding(.bottom, 100)
             }
@@ -123,7 +127,6 @@ class CustomCameraController: UIViewController {
     }
     func setupCaptureSession() {
         captureSession.sessionPreset = AVCaptureSession.Preset.hd1920x1080
-        print(UIScreen.main.bounds)
     }
 
     func setupDevice() {
