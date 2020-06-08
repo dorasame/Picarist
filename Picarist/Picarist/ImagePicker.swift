@@ -23,15 +23,27 @@ struct ImagePicker: UIViewControllerRepresentable {
 
         func imagePickerController(_ picker: UIImagePickerController,
                                    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            let uiImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-            image = uiImage
+//            let uiImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+            let uiImage = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
+            image = imageResize(uiImage: uiImage)
             isCaptured = true
             presentationMode.dismiss()
-
         }
 
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             presentationMode.dismiss()
+        }
+        
+        func imageResize(uiImage: UIImage) -> UIImage {
+            var newImage: UIImage?
+            var newSize: CGSize
+            newSize = CGSize(width: 540, height: 540)
+            let rect = CGRect(x: 0, y: 0, width: 540, height: 540)
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+            uiImage.draw(in: rect)
+            newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return newImage!
         }
 
     }
@@ -42,6 +54,8 @@ struct ImagePicker: UIViewControllerRepresentable {
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        
         picker.delegate = context.coordinator
         return picker
     }
