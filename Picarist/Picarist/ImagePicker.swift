@@ -37,9 +37,9 @@ struct ImagePicker: UIViewControllerRepresentable {
         func imageResize(uiImage: UIImage) -> UIImage {
             var newImage: UIImage?
             var newSize: CGSize
-            newSize = CGSize(width: 540, height: 540)
-            let rect = CGRect(x: 0, y: 0, width: 540, height: 540)
-            UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+            newSize = CGSize(width: 1080, height: 1080)
+            let rect = CGRect(x: 0, y: 0, width: 1080, height: 1080)
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 1)
             uiImage.draw(in: rect)
             newImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
