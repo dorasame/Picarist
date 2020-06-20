@@ -3,7 +3,7 @@ import SwiftUI
 struct CustomPhotoView: View {
     @Binding var inputImage: UIImage?
     @Binding var isCaptured: Bool
-    let model = saved_model()
+//    let model = saved_model()
     
     var body: some View {
         VStack {
@@ -40,7 +40,7 @@ struct CustomPhotoView: View {
                         .font(.system(size: 15))
                     }
                     .onTapGesture {
-                        self.testModel()
+//                        self.testModel()
                     }
                     .padding(.trailing, 30)
                     .frame(width: 100, alignment: .trailing)
@@ -51,17 +51,16 @@ struct CustomPhotoView: View {
         }
     }
     
-    func testModel() {
-        do {
-            print(inputImage!.size)
-            let result = try model.prediction(input_2: buffer(from: inputImage!)!)
-//            inputImage = UIImage(cgImage:result.Identity as! CGImage)
-            print(type(of:result.Identity))
-        }
-        catch {
-            print("error")
-        }
-    }
+//    func testModel() {
+//        do {
+//            print(inputImage!.size)
+//            let result = try model.prediction(input_2: inputImage!.pixelBuffer(width: 256, height: 256)!)
+//            inputImage = result.Identity.image(min: 0, max: 255, axes: (3, 1, 2))
+//        }
+//        catch {
+//            print("error")
+//        }
+//    }
     
     func buffer(from image: UIImage) -> CVPixelBuffer? {
       let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary

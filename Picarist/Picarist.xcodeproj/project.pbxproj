@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB723F1D2493D21F00DFE059 /* saved_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CB723F1C2493D21F00DFE059 /* saved_model.mlmodel */; };
+		CB723F1F249CABC200DFE059 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB723F1E249CABC200DFE059 /* UIImage+CVPixelBuffer.swift */; };
+		CB723F21249CAC2900DFE059 /* CGImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB723F20249CAC2900DFE059 /* CGImage+CVPixelBuffer.swift */; };
+		CB723F29249CC19200DFE059 /* saved_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CB723F28249CC19200DFE059 /* saved_model.mlmodel */; };
+		CB723F2B249CC1A100DFE059 /* MLMultiArray+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB723F2A249CC1A100DFE059 /* MLMultiArray+Image.swift */; };
+		CB723F2D249CC21F00DFE059 /* CGImage+RawBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB723F2C249CC21F00DFE059 /* CGImage+RawBytes.swift */; };
+		CB723F2F249CC29800DFE059 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB723F2E249CC29800DFE059 /* Math.swift */; };
 		CBC3F59524827EEE008989D0 /* CustomCameraPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC3F59424827EEE008989D0 /* CustomCameraPhotoView.swift */; };
 		CBC3F59724827F5F008989D0 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC3F59624827F5F008989D0 /* CustomCameraView.swift */; };
 		CBC3F59924828742008989D0 /* CustomPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC3F59824828742008989D0 /* CustomPhotoView.swift */; };
@@ -22,7 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CB723F1C2493D21F00DFE059 /* saved_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = saved_model.mlmodel; sourceTree = "<group>"; };
+		CB723F1E249CABC200DFE059 /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
+		CB723F20249CAC2900DFE059 /* CGImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
+		CB723F28249CC19200DFE059 /* saved_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = saved_model.mlmodel; sourceTree = "<group>"; };
+		CB723F2A249CC1A100DFE059 /* MLMultiArray+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MLMultiArray+Image.swift"; sourceTree = "<group>"; };
+		CB723F2C249CC21F00DFE059 /* CGImage+RawBytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+RawBytes.swift"; sourceTree = "<group>"; };
+		CB723F2E249CC29800DFE059 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		CBC3F59424827EEE008989D0 /* CustomCameraPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraPhotoView.swift; sourceTree = "<group>"; };
 		CBC3F59624827F5F008989D0 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
 		CBC3F59824828742008989D0 /* CustomPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoView.swift; sourceTree = "<group>"; };
@@ -74,13 +84,18 @@
 				CBC3F59424827EEE008989D0 /* CustomCameraPhotoView.swift */,
 				CBC3F59624827F5F008989D0 /* CustomCameraView.swift */,
 				CBCB14E4248E086E00E71331 /* CameraController.swift */,
-				CB723F1C2493D21F00DFE059 /* saved_model.mlmodel */,
 				CBCB14E6248E08C700E71331 /* ImagePicker.swift */,
 				CBC3F59824828742008989D0 /* CustomPhotoView.swift */,
+				CB723F28249CC19200DFE059 /* saved_model.mlmodel */,
+				CB723F2A249CC1A100DFE059 /* MLMultiArray+Image.swift */,
+				CB723F2E249CC29800DFE059 /* Math.swift */,
+				CB723F1E249CABC200DFE059 /* UIImage+CVPixelBuffer.swift */,
+				CB723F20249CAC2900DFE059 /* CGImage+CVPixelBuffer.swift */,
 				CBE78FBA248133CC006B85E9 /* Assets.xcassets */,
 				CBE78FBF248133CC006B85E9 /* LaunchScreen.storyboard */,
 				CBE78FC2248133CC006B85E9 /* Info.plist */,
 				CBE78FBC248133CC006B85E9 /* Preview Content */,
+				CB723F2C249CC21F00DFE059 /* CGImage+RawBytes.swift */,
 			);
 			path = Picarist;
 			sourceTree = "<group>";
@@ -167,10 +182,15 @@
 				CBE78FB5248133CB006B85E9 /* AppDelegate.swift in Sources */,
 				CBC3F59524827EEE008989D0 /* CustomCameraPhotoView.swift in Sources */,
 				CBCB14E5248E086E00E71331 /* CameraController.swift in Sources */,
+				CB723F2F249CC29800DFE059 /* Math.swift in Sources */,
+				CB723F2D249CC21F00DFE059 /* CGImage+RawBytes.swift in Sources */,
 				CBCB14E1248A888200E71331 /* ContentView.swift in Sources */,
 				CBE78FB7248133CB006B85E9 /* SceneDelegate.swift in Sources */,
 				CBCB14E7248E08C700E71331 /* ImagePicker.swift in Sources */,
-				CB723F1D2493D21F00DFE059 /* saved_model.mlmodel in Sources */,
+				CB723F21249CAC2900DFE059 /* CGImage+CVPixelBuffer.swift in Sources */,
+				CB723F29249CC19200DFE059 /* saved_model.mlmodel in Sources */,
+				CB723F2B249CC1A100DFE059 /* MLMultiArray+Image.swift in Sources */,
+				CB723F1F249CABC200DFE059 /* UIImage+CVPixelBuffer.swift in Sources */,
 				CBC3F59924828742008989D0 /* CustomPhotoView.swift in Sources */,
 				CBC3F59724827F5F008989D0 /* CustomCameraView.swift in Sources */,
 			);
@@ -314,6 +334,7 @@
 				DEVELOPMENT_TEAM = 5VRY993AKE;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Picarist/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,6 +357,7 @@
 				DEVELOPMENT_TEAM = 5VRY993AKE;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Picarist/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
